@@ -172,6 +172,17 @@ class BrokerTest extends TestCase
         );
     }
 
+    /**
+     * @covers Axstrad\Component\WorkForce\Broker::createImmutable
+     */
+    public function testCreateImmurableMethod()
+    {
+        $this->assertInstanceOf(
+            'Axstrad\Component\WorkForce\ImmutableBroker',
+            $this->fixture->createImmutable()
+        );
+    }
+
     public function workersProvider()
     {
         return array(

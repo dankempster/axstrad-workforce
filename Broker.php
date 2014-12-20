@@ -110,4 +110,14 @@ class Broker implements
 
         return $queue;
     }
+
+    /**
+     * Creates an immutable version of this broker.
+     *
+     * @return ImmutableBroker
+     */
+    public function createImmutable()
+    {
+        return new ImmutableBroker($this);
+    }
 }
