@@ -11,7 +11,7 @@ trait WorksAnythingTrait
 {
     /**
      */
-    public function canWork($data)
+    public function canWork($task)
     {
         return true;
     }

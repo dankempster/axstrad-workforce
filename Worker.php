@@ -15,10 +15,10 @@ interface Worker
     public function canWork($task);
 
     /**
-     * Work on data.
+     * Work on $task.
      *
      * @param mixed $task The task to be worked
-     * @return mixed true or a value on success, false on failure.
+     * @return mixed true or a positive value on success, false on failure.
      */
     public function work($task);
 }
