@@ -1,8 +1,8 @@
 <?php
 namespace Axstrad\Component\WorkForce\Tests;
 
-use Axstrad\Component\Test\TestCase;
 use Axstrad\Component\WorkForce\Broker;
+use Axstrad\Component\WorkForce\Test\TestCase;
 
 
 class BrokerTest extends TestCase
@@ -10,68 +10,6 @@ class BrokerTest extends TestCase
     public function setUp()
     {
         $this->fixture = new Broker();
-    }
-
-    protected function createMockWorker($mockClassName = '')
-    {
-        return $this->getMockForAbstractClass(
-            'Axstrad\Component\WorkForce\Worker',
-            array(),
-            $mockClassName
-        );
-    }
-
-    protected function workerCanWork($workResult = null)
-    {
-        $worker = $this->createMockWorker('Mock_Worker_CanWork');
-        $worker
-            ->expects($this->once())
-            ->method('canWork')
-            ->will($this->returnValue(true))
-        ;
-
-        if ($workResult !== null) {
-            $worker
-                ->expects($this->once())
-                ->method('work')
-                ->will($this->returnValue($workResult))
-            ;
-        }
-        return $worker;
-    }
-
-    protected function workerCanNotWork()
-    {
-        $worker = $this->createMockWorker('Mock_Worker_CanNotWork');
-        $worker
-            ->expects($this->once())
-            ->method('canWork')
-            ->will($this->returnValue(false))
-        ;
-        return $worker;
-    }
-
-    protected function workerIsNotUsed()
-    {
-        $worker = $this->createMockWorker('Mock_Worker_IsNotUsed');
-        $worker->expects($this->never())
-            ->method('canWork')
-        ;
-        $worker->expects($this->never())
-            ->method('work')
-        ;
-        return $worker;
-    }
-
-    protected function addWorkersToFixture(array $workers)
-    {
-        $expectedOrder = array();
-        foreach ($workers as $workerArgs) {
-            call_user_func(array($this->fixture, 'addWorker'), $workerArgs[1], $workerArgs[0]);
-            $expectedOrder[$workerArgs[0]] = get_class($workerArgs[1]);
-        }
-        krsort($expectedOrder);
-        return array_values($expectedOrder);
     }
 
     /**
@@ -238,5 +176,16 @@ class BrokerTest extends TestCase
                 false
             ),
         );
+    }
+
+    protected function addWorkersToFixture(array $workers)
+    {
+        $expectedOrder = array();
+        foreach ($workers as $workerArgs) {
+            call_user_func(array($this->fixture, 'addWorker'), $workerArgs[1], $workerArgs[0]);
+            $expectedOrder[$workerArgs[0]] = get_class($workerArgs[1]);
+        }
+        krsort($expectedOrder);
+        return array_values($expectedOrder);
     }
 }

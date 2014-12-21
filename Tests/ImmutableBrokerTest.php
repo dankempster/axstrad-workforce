@@ -1,10 +1,9 @@
 <?php
 namespace Axstrad\Component\WorkForce\Tests;
 
-use Axstrad\Component\Test\TestCase;
 use Axstrad\Component\WorkForce\Broker;
 use Axstrad\Component\WorkForce\ImmutableBroker;
-
+use Axstrad\Component\WorkForce\Test\TestCase;
 
 
 class ImmutableBrokerTest extends TestCase
