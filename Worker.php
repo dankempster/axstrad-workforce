@@ -18,7 +18,7 @@ interface Worker
      * Work on $task.
      *
      * @param mixed $task The task to be worked
-     * @return mixed true or a positive value on success, false on failure.
+     * @return Report A report on the work carried out
      */
     public function work($task);
 }
