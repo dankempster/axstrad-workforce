@@ -2,6 +2,7 @@
 namespace Axstrad\Component\WorkForce\Team;
 
 use Axstrad\Component\WorkForce\Worker;
+use Countable;
 use IteratorAggregate;
 
 
@@ -9,6 +10,7 @@ use IteratorAggregate;
  * Axstrad\Component\WorkForce\Worker\Team
  */
 interface Team extends
+    Countable,
     IteratorAggregate,
     Worker
 {

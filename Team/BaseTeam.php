@@ -3,6 +3,7 @@ namespace Axstrad\Component\WorkForce\Team;
 
 use ArrayIterator;
 use Axstrad\Component\WorkForce\Worker;
+use Countable;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
@@ -60,6 +61,13 @@ abstract class BaseTeam implements
     public function getIterator()
     {
         return new ArrayIterator($this->workers->toArray());
+    }
+
+    /**
+     */
+    public function count()
+    {
+        return $this->workers->count();
     }
 
     /**

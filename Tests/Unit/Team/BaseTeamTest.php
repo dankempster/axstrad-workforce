@@ -60,6 +60,18 @@ class BaseTeamTest extends TestCase
     }
 
     /**
+     * @covers Axstrad\Component\WorkForce\Team\BaseTeam::count
+     * @depends testCanAddWorker
+     * @uses Axstrad\Component\WorkForce\Team\BaseTeam::addWorker
+     */
+    public function testCountMethod()
+    {
+        $this->assertEquals(0, $this->fixture->count());
+        $this->fixture->addWorker($this->createMockWorker());
+        $this->assertEquals(1, $this->fixture->count());
+    }
+
+    /**
      * @covers Axstrad\Component\WorkForce\Team\BaseTeam::addWorker
      * @depends testCanAddWorker
      */
