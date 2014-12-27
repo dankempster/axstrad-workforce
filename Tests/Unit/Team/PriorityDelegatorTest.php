@@ -7,9 +7,10 @@ use Axstrad\Component\WorkForce\Test\TestCase;
 
 
 /**
+ * @covers Axstrad\Component\WorkForce\Team\PriorityDelegator::__construct
+ * @group unit
  * @uses Axstrad\Component\WorkForce\Test\TeamStorageAccessor
  * @uses Axstrad\Component\WorkForce\Test\TestCase
- * @covers Axstrad\Component\WorkForce\Team\PriorityDelegator::__construct
  */
 class PriorityDelegatorTest extends TestCase
 {
