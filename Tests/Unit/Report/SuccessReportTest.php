@@ -1,5 +1,5 @@
 <?php
-namespace Axstrad\Component\WorkForce\Tests\Report;
+namespace Axstrad\Component\WorkForce\Tests\Unit\Report;
 
 use Axstrad\Component\Test\TestCase;
 use Axstrad\Component\WorkForce\Report;
@@ -8,6 +8,10 @@ use PhpOption\None;
 use PhpOption\Some;
 
 
+/**
+ * @group unit
+ * @uses Axstrad\Component\WorkForce\Test\TestCase
+ */
 class SuccessReportTest extends TestCase
 {
     public function setUp()
@@ -17,10 +21,11 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::__construct
+     * @uses Axstrad\Component\WorkForce\Report\BaseReport::getResult
      */
     public function testConstructionWithNullResult()
     {
-        $this->isInstanceOf(
+        $this->assertInstanceOf(
             'PhpOption\None',
             $this->fixture->getResult()
         );
@@ -28,11 +33,12 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::__construct
+     * @uses Axstrad\Component\WorkForce\Report\BaseReport::getResult
      */
     public function testConstructionWithNoneOptionResult()
     {
         $this->fixture = new SuccessReport(None::create());
-        $this->isInstanceOf(
+        $this->assertInstanceOf(
             'PhpOption\None',
             $this->fixture->getResult()
         );
@@ -40,11 +46,12 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::__construct
+     * @uses Axstrad\Component\WorkForce\Report\BaseReport::getResult
      */
     public function testConstructionWithStringResult()
     {
         $this->fixture = new SuccessReport('result');
-        $this->isInstanceOf(
+        $this->assertInstanceOf(
             'PhpOption\Some',
             $this->fixture->getResult()
         );
@@ -56,6 +63,7 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::__construct
+     * @uses Axstrad\Component\WorkForce\Report\BaseReport::getResult
      */
     public function testConstructionWithSomeOptionResult()
     {
@@ -68,6 +76,7 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::getState
+     * @uses Axstrad\Component\WorkForce\Report\SuccessReport::__construct
      */
     public function testGetState()
     {
@@ -79,6 +88,7 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::isSuccessful
+     * @uses Axstrad\Component\WorkForce\Report\SuccessReport::__construct
      */
     public function testIsSuccessful()
     {
@@ -87,6 +97,7 @@ class SuccessReportTest extends TestCase
 
     /**
      * @covers Axstrad\Component\WorkForce\Report\SuccessReport::isFailure
+     * @uses Axstrad\Component\WorkForce\Report\SuccessReport::__construct
      */
     public function testIsFailure()
     {

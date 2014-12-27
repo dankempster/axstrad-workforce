@@ -1,11 +1,14 @@
 <?php
-namespace Axstrad\Component\WorkForce\Tests\Report;
+namespace Axstrad\Component\WorkForce\Tests\Unit\Report;
 
 use Axstrad\Component\Test\TestCase;
 use Axstrad\Component\WorkForce\Report\FailReport;
 use Axstrad\Component\WorkForce\Report;
 use PhpOption\None;
 
+/**
+ * @group unit
+ */
 class FailReportTest extends TestCase
 {
     public function setUp()

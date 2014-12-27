@@ -1,9 +1,11 @@
 <?php
-namespace Axstrad\Component\WorkForce\Tests;
+namespace Axstrad\Component\WorkForce\Tests\Unit\Worker;
 
 use Axstrad\Component\Test\TraitTestCase;
 
-
+/**
+ * @group unit
+ */
 class WorkerDependantTraitTest extends TraitTestCase
 {
     protected $trait = 'Axstrad\Component\WorkForce\WorkerDependantTrait';

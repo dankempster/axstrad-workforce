@@ -40,7 +40,7 @@ abstract class BaseReport implements
      */
     public function isSuccessful()
     {
-        return ($this->state & self::STATUS_SUCCESS) == self::STATUS_SUCCESS;
+        return ($this->getState() & self::STATUS_SUCCESS) == self::STATUS_SUCCESS;
     }
 
     /**

@@ -1,11 +1,15 @@
 <?php
-namespace Axstrad\Component\WorkForce\Tests\Report\BaseReport;
+namespace Axstrad\Component\WorkForce\Tests\Unit\Report\BaseReport;
 
 use Axstrad\Component\Test\TestCase;
 use Axstrad\Component\WorkForce\Tests\Report\BaseReportTestClass;
 use Axstrad\Component\WorkForce\Report;
 use PhpOption\None;
 
+/**
+ * @group unit
+ * @uses Axstrad\Component\WorkForce\Tests\Report\BaseReportTestClass
+ */
 class SuccessWithoutResultTest extends TestCase
 {
     protected $mockResult;
@@ -19,14 +23,9 @@ class SuccessWithoutResultTest extends TestCase
         $this->fixture->setResult($this->mockResult);
     }
 
-    public function testGetState()
-    {
-        $this->assertEquals(
-            Report::STATUS_SUCCESS,
-            $this->fixture->getState()
-        );
-    }
-
+    /**
+     * @covers Axstrad\Component\WorkForce\Report\BaseReport::getResult
+     */
     public function testGetResult()
     {
         $this->assertSame(
@@ -35,23 +34,13 @@ class SuccessWithoutResultTest extends TestCase
         );
     }
 
-    public function testIsSuccessful()
-    {
-        $this->assertTrue($this->fixture->isSuccessful());
-    }
-
-    public function testIsFailure()
-    {
-        $this->assertFalse($this->fixture->isFailure());
-    }
-
-    public function testHasResult()
+    /**
+     * @covers Axstrad\Component\WorkForce\Report\BaseReport::hasResult
+     * @depends testGetResult
+     * @uses Axstrad\Component\WorkForce\Report\BaseReport::getResult
+     */
+    public function testDoesNotHaveResult()
     {
         $this->assertFalse($this->fixture->hasResult());
-    }
-
-    public function testWasWorked()
-    {
-        $this->assertTrue($this->fixture->wasWorked());
     }
 }

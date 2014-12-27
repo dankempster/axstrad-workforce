@@ -15,5 +15,5 @@ abstract class CatchAll implements
 
     /**
      */
-    public abstract function process($task);
+    public abstract function work($task);
 }
