@@ -78,4 +78,15 @@ class ImmutableDelegatorTest extends TestCase
             $this->getMockForAbstractClass('Axstrad\Component\WorkForce\Worker')
         );
     }
+
+    /**
+     * @covers Axstrad\Component\WorkForce\Team\Immutable\Delegator::createImmutable
+     */
+    public function testCreateImmutableMehtodReturnsSelf()
+    {
+        $this->assertSame(
+            $this->fixture,
+            $this->fixture->createImmutable()
+        );
+    }
 }

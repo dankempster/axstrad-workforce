@@ -10,9 +10,9 @@ use Axstrad\Component\WorkForce\Worker;
  */
 class Delegator extends BaseDelegator
 {
-    public function __construct(BaseDelegator $broker)
+    public function __construct(BaseDelegator $delegator)
     {
-        $this->workers = clone $broker->workers;
+        $this->workers = clone $delegator->workers;
     }
 
     /**
@@ -27,5 +27,15 @@ class Delegator extends BaseDelegator
     public function removeWorker(Worker $worker)
     {
         throw new \BadMethodCallException("This Delegator is immutable");
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return self
+     */
+    public function createImmutable()
+    {
+        return $this;
     }
 }
