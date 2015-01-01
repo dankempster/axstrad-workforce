@@ -66,7 +66,7 @@ interface Report
     /**
      * Get the result of the work
      *
-     * @return PhpOption\Option
+     * @return \PhpOption\Option
      */
     public function getResult();
 }
