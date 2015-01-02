@@ -22,6 +22,16 @@ use PhpOption\Option;
 class SuccessReport extends BaseReport
 {
     /**
+     * Returns a new SuccessReport object.
+     *
+     * @return SuccessReport
+     */
+    public static function create($result = null)
+    {
+        return new static($result);
+    }
+
+    /**
      * @param mixed $result
      */
     public function __construct($result = null)

@@ -24,6 +24,16 @@ use PhpOption\None;
 class FailReport extends BaseFailReport
 {
     /**
+     * Returns a new FailReport object.
+     *
+     * @return FailReport
+     */
+    public static function create()
+    {
+        return new static;
+    }
+
+    /**
      */
     public function getState()
     {
