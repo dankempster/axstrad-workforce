@@ -14,13 +14,15 @@ namespace Axstrad\Component\WorkForce\Worker;
 
 use Axstrad\Component\WorkForce\Worker;
 
-
 /**
  * Axstrad\Component\WorkForce\Worker\WorksAnythingTrait
  */
 trait WorksAnythingTrait
 {
     /**
+     * {@inheritDoc}
+     *
+     * @return boolean Always true.
      */
     public function canWork($task)
     {
