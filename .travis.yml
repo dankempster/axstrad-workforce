@@ -6,7 +6,6 @@ php:
 before_script:
   - composer update --prefer-dist
 script:
-  # - php ./vendor/phpunit/phpunit/phpunit
   - php ./vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
