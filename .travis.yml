@@ -11,6 +11,7 @@ script:
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+  - php composer require satooshi/php-coveralls
   - php ./vendor/bin/coveralls -v
 notifications:
   email:
